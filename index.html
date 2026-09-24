@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <!-- Używamy czystej, lżejszej wersji skryptu, która nie zawiesza telefonów -->
+    <!-- 1. Najpierw ładujemy bibliotekę A-Frame -->
+    <script src="https://aframe.io"></script>
+    <!-- 2. Dopiero potem ładujemy rozszerzenie AR.js dla A-Frame -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  </head>
-  <body style="margin: 0px; overflow: hidden;">
-    
-    <!-- Całkowicie wyłączamy ekrany ładowania (loadingScreen: false) -->
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" loading-screen="enabled: false">
-      
-      <!-- Testowy marker HIRO - nie potrzebuje żadnych plików .patt -->
-      <a-marker type="preset" preset="hiro">
-        <a-box position="0 0.5 0" material="color: red;"></a-box>
-      </a-marker>
-      
-      
-      
+</head>
+<body style="margin: 0px; overflow: hidden;">
+
+    <!-- Dodano vr-mode-ui="enabled: false" w celu ukrycia zbędnego przycisku VR na telefonach -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" loading-screen="enabled: false" vr-mode-ui="enabled: false">
+        
+        <!-- Marker HIRO wyświetli czerwoną kostkę -->
+        <a-marker type="preset" preset="hiro">
+            <a-box position="0 0.5 0" material="color: red;"></a-box>
+        </a-marker>
+        
+        <!-- Dodanie kamery jest wymagane przez A-Frame do poprawnego renderowania sceny 3D -->
+        
+        
     </a-scene>
-    
-  </body>
+
+</body>
 </html>
