@@ -18,11 +18,17 @@
       
       <!-- Definicja zasobów: Twój model .glb z Meshy -->
       <a-assets>
-        <a-asset-item id="meshy-model" src="model.glb"></a-asset-item>
+         <img id="moje-zdjecie" src="foto.png">
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
+       <a-image 
+          src="#moje-zdjecie" 
+          position="0 0 0" 
+          rotation="0 0 0" 
+          width="1" 
+          height="1">
+        </a-image>
       <!-- 
         targetIndex: 0 oznacza pierwszy obrazek, który zakodowałeś w pliku .mind.
         Jeśli w pliku .mind masz tylko jeden marker, zostawiasz 0.
