@@ -1,17 +1,39 @@
-
+<!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meshy AR z MindAR</title>
+    <!-- Ładowanie A-Frame oraz najnowszej wersji MindAR dla A-Frame -->
+    <script src="https://aframe.io"></script>
+    <script src="https://jsdelivr.net"></script>
   </head>
-  <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+  <body style="margin: 0px; overflow: hidden;">
+    
+    <!-- 
+      Ważne: W 'imageTargetSrc' podajemy ścieżkę do Twojego pliku .mind 
+      'maxTrack' oznacza ile maksymalnie markerów system może śledzić naraz
+    -->
+    <a-scene mindar-image="imageTargetSrc: target.mind; maxTrack: 1;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      
+      <!-- Definicja zasobów: Twój model .glb z Meshy -->
+      <a-assets>
+        <a-asset-item id="meshy-model" src="model.glb"></a-asset-item>
+      </a-assets>
+
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-      </a-entity>
+
+      <!-- 
+        targetIndex: 0 oznacza pierwszy obrazek, który zakodowałeś w pliku .mind.
+        Jeśli w pliku .mind masz tylko jeden marker, zostawiasz 0.
+      -->
+      
+        <!-- Twój model 3D: dopasuj pozycję, skalę i rotację pod swój marker -->
+        
+        
+      
+      
     </a-scene>
   </body>
 </html>
+
